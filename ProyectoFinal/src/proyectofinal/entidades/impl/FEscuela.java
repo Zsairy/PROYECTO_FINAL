@@ -85,7 +85,7 @@ public class FEscuela implements Serializable {
         boolean eje = false;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from actividades.factualiza_escuela(?,?,?,?)";
+            String sql = "select * from actividades.factualiza_escuela(?,?,?,?,?)";
             lstP.add(new Parametro(1, escuela.getCodigo()));
             lstP.add(new Parametro(2, escuela.getCodigo_facultad()));
             lstP.add(new Parametro(3, escuela.getNombre()));
