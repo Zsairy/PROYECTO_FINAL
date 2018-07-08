@@ -15,9 +15,7 @@ public class Facultad {
   private String descripcion ;
   private int codigo_sicoa ;
 
-    public Facultad() {
-    }
-
+   
     public Facultad(int codigo, String nombre, String descripcion, int codigo_sicoa) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -25,6 +23,9 @@ public class Facultad {
         this.codigo_sicoa = codigo_sicoa;
     }
 
+    public Facultad() {
+    }
+    
     public int getCodigo() {
         return codigo;
     }

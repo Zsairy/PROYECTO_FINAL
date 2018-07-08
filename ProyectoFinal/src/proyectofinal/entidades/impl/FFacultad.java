@@ -23,7 +23,7 @@ public class FFacultad implements Serializable {
         boolean eje = false;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from master.f_insert_facultad(?,?,?,?)";
+            String sql = "select * from actividades.finsertar_facultad(?,?,?,?)";
             lstP.add(new Parametro(1, facultad.getCodigo()));
             lstP.add(new Parametro(2, facultad.getNombre()));
             lstP.add(new Parametro(3, facultad.getDescripcion()));
@@ -57,7 +57,7 @@ public class FFacultad implements Serializable {
     public static ArrayList<Facultad> ObtenerFacultades() throws Exception {
         ArrayList<Facultad> lst = new ArrayList<Facultad>();
         try {
-            String sql = "select * from master.f_select_facultad()";
+            String sql = "select * from actividades.fc_obtener_facultad()";
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
             lst = llenarFacultades(rs);
             rs = null;
@@ -72,7 +72,7 @@ public class FFacultad implements Serializable {
         Facultad lst;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from master.f_select_facultad_dado_codigo(?)";
+            String sql = "select * from actividades.fc_obtener_facultad_dado_codigo(?)";
             lstP.add(new Parametro(1, codigo));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = new Facultad();
@@ -88,7 +88,7 @@ public class FFacultad implements Serializable {
         boolean eje = false;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from master.f_update_facultad(?,?,?,?)";
+            String sql = "select * from actividades.factualiza_facultad(?,?,?,?)";
             lstP.add(new Parametro(1, facultad.getNombre()));
             lstP.add(new Parametro(2, facultad.getDescripcion()));
             lstP.add(new Parametro(3, facultad.getCodigo_sicoa()));
@@ -108,7 +108,7 @@ public class FFacultad implements Serializable {
         boolean eje = false;
         try {
             ArrayList<Parametro> lstP = new ArrayList<Parametro>();
-            String sql = "select * from master.f_delete_facultad(?)";
+            String sql = "select * from actividades.felimina_facultad(?)";
             lstP.add(new Parametro(1, facultad.getCodigo()));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             while (rs.next()) {
