@@ -18,9 +18,11 @@ public class Acceso extends javax.swing.JFrame {
      * Creates new form Acceso
      */
     public Acceso() {
+        this.setUndecorated(true);
         initComponents();
         this.setSize(390, 410);
         this.setLayout(new BorderLayout());
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -39,7 +41,6 @@ public class Acceso extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         btnIngresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,10 +87,6 @@ public class Acceso extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/escudounach.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 390, 120);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Sin título.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(130, 120, 93, 110);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/14156150.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
@@ -164,7 +161,6 @@ public class Acceso extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblUsuario;

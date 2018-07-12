@@ -22,14 +22,16 @@ import java.util.List;
 public class FrmFacultad extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmFacultad
+      this.setUndecorated(true);
+     
      */
     public FrmFacultad() {
+        this.setUndecorated(true);
         initComponents();
                
-        //this.setClosable(true);
         this.setSize(770,749);
         this.setLayout(new BorderLayout());
+        this.setLocationRelativeTo(null);
     }
      private void limpiarControles() {
         txtCodigofacultad.setText("");
@@ -67,6 +69,8 @@ public class FrmFacultad extends javax.swing.JFrame {
         TablaListarFacultad = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -119,7 +123,7 @@ public class FrmFacultad extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtCodigofacultad);
-        txtCodigofacultad.setBounds(230, 100, 126, 30);
+        txtCodigofacultad.setBounds(230, 100, 400, 30);
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,9 +131,9 @@ public class FrmFacultad extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtNombre);
-        txtNombre.setBounds(230, 140, 126, 30);
+        txtNombre.setBounds(230, 140, 400, 30);
         getContentPane().add(txtDescripcion);
-        txtDescripcion.setBounds(230, 180, 126, 30);
+        txtDescripcion.setBounds(230, 180, 400, 30);
 
         txtCodigosicoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +141,7 @@ public class FrmFacultad extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtCodigosicoa);
-        txtCodigosicoa.setBounds(230, 220, 126, 30);
+        txtCodigosicoa.setBounds(230, 220, 400, 30);
 
         btnModificar.setText("ACTUALIZAR");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +150,7 @@ public class FrmFacultad extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnModificar);
-        btnModificar.setBounds(390, 140, 110, 23);
+        btnModificar.setBounds(230, 290, 110, 23);
 
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +159,7 @@ public class FrmFacultad extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(390, 100, 110, 23);
+        btnEliminar.setBounds(90, 290, 110, 23);
 
         btnListar.setText("LISTAR");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +168,7 @@ public class FrmFacultad extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnListar);
-        btnListar.setBounds(390, 180, 110, 23);
+        btnListar.setBounds(370, 290, 110, 23);
 
         TablaListarFacultad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -245,11 +249,11 @@ public class FrmFacultad extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TablaListarFacultad);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 290, 662, 298);
+        jScrollPane1.setBounds(40, 340, 662, 298);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/unach.jpg"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(550, 80, 95, 105);
+        jLabel4.setBounds(640, 10, 95, 100);
 
         btnNuevo.setText("NUEVO");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -258,7 +262,27 @@ public class FrmFacultad extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnNuevo);
-        btnNuevo.setBounds(390, 220, 110, 23);
+        btnNuevo.setBounds(500, 290, 110, 23);
+
+        btnVolver.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnVolver.setText("MENU");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnVolver);
+        btnVolver.setBounds(260, 670, 80, 23);
+
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSalir);
+        btnSalir.setBounds(390, 670, 80, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -365,11 +389,11 @@ public class FrmFacultad extends javax.swing.JFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
-           if (btnNuevo.getText().compareTo("Nuevo")==0) {
+           if (btnNuevo.getText().compareTo("NUEVO")==0) {
             limpiarControles();
-            btnNuevo.setText("Registrar");          
+            btnNuevo.setText("REGISTRAR");          
         }else{
-            if(btnNuevo.getText().compareTo("Registrar")==0){                  
+            if(btnNuevo.getText().compareTo("REGISTRAR")==0){                  
             try {
             Facultad facultad = new Facultad();
             FFacultad ffacultad = new FFacultad();
@@ -381,7 +405,7 @@ public class FrmFacultad extends javax.swing.JFrame {
                 limpiarControles();
                 JOptionPane.showMessageDialog(this,"Registrado correctamente!!",
                 "Transacción correcta", JOptionPane.INFORMATION_MESSAGE);
-                btnNuevo.setText("Nuevo");
+                btnNuevo.setText("NUEVO");
                 }
             } catch (Exception ex) {
             JOptionPane.showMessageDialog(this,"Error desconocido: "+ex.getMessage(),
@@ -390,6 +414,18 @@ public class FrmFacultad extends javax.swing.JFrame {
             }    
         }   
     }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        // TODO add your handling code here:
+        FrmMenuPrincipal obj=new FrmMenuPrincipal();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+         System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -433,6 +469,8 @@ public class FrmFacultad extends javax.swing.JFrame {
     private javax.swing.JButton btnListar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
