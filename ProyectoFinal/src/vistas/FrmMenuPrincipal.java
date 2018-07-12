@@ -5,6 +5,8 @@
  */
 package vistas;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author franc
@@ -12,10 +14,18 @@ package vistas;
 public class FrmMenuPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmMenuPrincipal
+    this.setUndecorated(true);
+        initComponents();
+        this.setSize(390, 410);
+        this.setLayout(new BorderLayout());
+        this.setLocationRelativeTo(null);
      */
     public FrmMenuPrincipal() {
+        this.setUndecorated(true);
         initComponents();
+        this.setSize(390, 410);
+        this.setLayout(new BorderLayout());
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,56 +38,133 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jRadioButton1 = new javax.swing.JRadioButton();
+        jMenu1 = new javax.swing.JMenu();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        btnFacultad = new javax.swing.JButton();
+        btnCarrera = new javax.swing.JButton();
+        btnNivel = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jRadioButton1.setText("jRadioButton1");
 
+        jMenu1.setText("jMenu1");
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jMenuItem1.setText("jMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jLabel1.setText("jLabel1");
-
-        jButton1.setText("jButton1");
-
-        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(68, 1300, 34, 14);
 
         jButton2.setText("jButton2");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(348, 1320, 73, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
-                .addGap(94, 94, 94))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton2))
-                .addContainerGap(177, Short.MAX_VALUE))
-        );
+        jScrollPane1.setViewportView(jTextPane1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(123, 641, 8, 22);
+
+        btnFacultad.setBackground(new java.awt.Color(204, 204, 204));
+        btnFacultad.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnFacultad.setText("FACULTAD");
+        btnFacultad.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnFacultad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFacultad.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnFacultad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacultadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnFacultad);
+        btnFacultad.setBounds(10, 30, 150, 70);
+
+        btnCarrera.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCarrera.setText("CARRERAS");
+        btnCarrera.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCarrera.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCarrera.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarreraActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCarrera);
+        btnCarrera.setBounds(10, 140, 150, 70);
+
+        btnNivel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnNivel.setText("NIVEL");
+        btnNivel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNivel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNivelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnNivel);
+        btnNivel.setBounds(10, 240, 150, 70);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/14156150.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 630, 410);
+
+        jMenu3.setText("Sesion");
+
+        jMenuItem2.setText("Salir");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void btnFacultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacultadActionPerformed
+        // TODO add your handling code here:
+        FrmFacultad obj=new  FrmFacultad ();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnFacultadActionPerformed
+
+    private void btnCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarreraActionPerformed
+        // TODO add your handling code here:
+        FrmCarrera obj=new  FrmCarrera ();
+        obj.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCarreraActionPerformed
+
+    private void btnNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNivelActionPerformed
+        // TODO add your handling code here:
+        FrmNivel obj=new  FrmNivel();
+        obj.setVisible(true);
+        dispose(); 
+    }//GEN-LAST:event_btnNivelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,10 +202,21 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCarrera;
+    private javax.swing.JButton btnFacultad;
+    private javax.swing.JButton btnNivel;
     private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }
