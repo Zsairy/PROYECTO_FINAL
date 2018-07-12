@@ -6,6 +6,14 @@
 package vistas;
 
 import java.awt.BorderLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import proyectofinal.entidades.Facultad;
+import proyectofinal.entidades.Nivel;
+import proyectofinal.entidades.impl.FFacultad;
+import proyectofinal.entidades.impl.FNivel;
+
 
 /**
  *
@@ -24,7 +32,15 @@ public class FrmNivel extends javax.swing.JFrame {
         //this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null);
     }
-
+ private void limpiarContniveles() {
+        txtCodigonivel.setText("");
+        txtCodigosicoa.setText("");
+        txtNombre.setText("");
+        txtParalelo.setText("");
+        txtModalidad.setText("");
+        txtCodigoescuela.setText("");
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,20 +61,20 @@ public class FrmNivel extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        txtbuscar = new javax.swing.JButton();
-        txteliminar = new javax.swing.JButton();
-        txtactualizar = new javax.swing.JButton();
-        txtlistar = new javax.swing.JButton();
-        txtnuevo = new javax.swing.JButton();
+        txtCodigonivel = new javax.swing.JTextField();
+        txtBuscarcodigo = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtParalelo = new javax.swing.JTextField();
+        txtCodigosicoa = new javax.swing.JTextField();
+        txtModalidad = new javax.swing.JTextField();
+        txtCodigoescuela = new javax.swing.JTextField();
+        btnbuscar = new javax.swing.JButton();
+        btntEliminar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnListar = new javax.swing.JButton();
+        btnNuevo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tcodigo = new javax.swing.JTable();
+        tableListarNivel = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,17 +110,42 @@ public class FrmNivel extends javax.swing.JFrame {
 
         jLabel9.setText("CODIGO ESCUELA:");
 
-        txtbuscar.setText("BUSCAR");
+        btnbuscar.setText("BUSCAR");
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
-        txteliminar.setText("ELIMINAR");
+        btntEliminar.setText("ELIMINAR");
+        btntEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntEliminarActionPerformed(evt);
+            }
+        });
 
-        txtactualizar.setText("ACTUALIZAR");
+        btnModificar.setText("ACTUALIZAR");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
-        txtlistar.setText("LISTAR");
+        btnListar.setText("LISTAR");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
 
-        txtnuevo.setText("NUEVO");
+        btnNuevo.setText("NUEVO");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
-        tcodigo.setModel(new javax.swing.table.DefaultTableModel(
+        tableListarNivel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -125,7 +166,7 @@ public class FrmNivel extends javax.swing.JFrame {
                 "Codigo", "Codigo sicoa", "Nombre", "Paralelo", "Modalilad", "Codigo escuela"
             }
         ));
-        jScrollPane1.setViewportView(tcodigo);
+        jScrollPane1.setViewportView(tableListarNivel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,9 +180,9 @@ public class FrmNivel extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(86, 86, 86)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtBuscarcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(txtbuscar))
+                                .addComponent(btnbuscar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addComponent(jLabel3))
@@ -155,34 +196,34 @@ public class FrmNivel extends javax.swing.JFrame {
                                     .addComponent(jLabel9))
                                 .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtCodigoescuela, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigosicoa, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigonivel, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtParalelo, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(txteliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(txtactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(txtlistar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(txtnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(193, 193, 193)
                         .addComponent(btnNivel)
                         .addGap(80, 80, 80)
                         .addComponent(btnSalir))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btntEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,8 +231,8 @@ public class FrmNivel extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtbuscar))
+                    .addComponent(txtBuscarcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnbuscar))
                 .addGap(16, 16, 16)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -199,42 +240,42 @@ public class FrmNivel extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCodigonivel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addGap(9, 9, 9))
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodigosicoa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtParalelo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoescuela, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txteliminar)
-                    .addComponent(txtactualizar)
-                    .addComponent(txtlistar)
-                    .addComponent(txtnuevo))
+                    .addComponent(btntEliminar)
+                    .addComponent(btnModificar)
+                    .addComponent(btnListar)
+                    .addComponent(btnNuevo))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNivel)
                     .addComponent(btnSalir))
-                .addContainerGap())
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -251,6 +292,122 @@ public class FrmNivel extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        // TODO add your handling code here:
+         FNivel fnivel = new FNivel();
+        try {
+            limpiarContniveles();
+            nivel = fnivel.ObtenerNivelDadoCodigo(
+                Integer.parseInt(txtBuscarcodigo.getText()));
+            if (nivel != null) {
+                txtCodigonivel.setText(Integer.toString(nivel.getCodigo()));
+                txtCodigosicoa.setText(Integer.toString(nivel.getCodigo_sicoa()));
+                txtNombre.setText(nivel.getNombre());
+                txtParalelo.setText(nivel.getParalelo());
+                txtModalidad.setText(nivel.getModalidad());
+                txtCodigoescuela.setText(Integer.toString(nivel.getCodigo_escuela()));
+               // txtCodigo_modulo.setText(Integer.toString(facultad.getCodigo_modulo()));
+                
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al buscar el nivel!!",
+                "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btntEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntEliminarActionPerformed
+        // TODO add your handling code here:
+        FNivel fnivel = new FNivel();
+        int confirmacion = JOptionPane.showConfirmDialog(this,
+            "¿Quiere eliminar el nivel?", "Confirme",
+            JOptionPane.YES_NO_OPTION);
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            try {
+                if (fnivel.eliminar(nivel) ) {
+                    JOptionPane.showMessageDialog(this,
+                        "Nivel eliminado correctamente!!",
+                        "Transacción correcta", JOptionPane.INFORMATION_MESSAGE);
+                    limpiarContniveles();
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Error al eliminar el nivel!!",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btntEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        FNivel fnivel = new FNivel();
+        int confirmacion = JOptionPane.showConfirmDialog(this,
+                "¿Quiere modificar el nivel?", "Confirme",
+                JOptionPane.YES_NO_OPTION);
+        if (confirmacion == JOptionPane.YES_OPTION) {
+        try {            
+            nivel.setCodigo(Integer.parseInt(txtCodigonivel.getText()));
+            nivel.setCodigo_sicoa(Integer.parseInt(txtCodigosicoa.getText()));
+            nivel.setNombre(txtNombre.getText());
+            nivel.setParalelo(txtParalelo.getText());
+            nivel.setModalidad(txtModalidad.getText()); 
+            nivel.setCodigo_escuela(Integer.parseInt(txtCodigoescuela.getText()));            
+            if(fnivel.actualizar(nivel) ){
+                JOptionPane.showMessageDialog(this,"Nivel modificado correctamente!!",
+                "Transacción correcta", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,"Error desconocido: "+ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            }             
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) tableListarNivel.getModel();               
+        ArrayList<Nivel> lista = new ArrayList<>();
+        try {
+            FNivel fnivel = new FNivel();
+            lista = fnivel.ObtenerNiveles();            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(),"Error", 
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        for(Nivel r : lista){
+            modelo.addRow(new Object[]{ r.getCodigo(),r.getCodigo_sicoa(),r.getNombre(),r.getParalelo(),
+            r.getModalidad(),r.getCodigo_escuela()});           
+        }
+    }//GEN-LAST:event_btnListarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+         if (btnNuevo.getText().compareTo("NUEVO")==0) {
+            limpiarContniveles();
+            btnNuevo.setText("REGISTRAR");          
+        }else{
+            if(btnNuevo.getText().compareTo("REGISTRAR")==0){                  
+            try {
+            Nivel nivel = new Nivel();
+            FNivel fnivel = new FNivel();
+            nivel.setCodigo(Integer.parseInt(txtCodigonivel.getText()));
+            nivel.setCodigo_sicoa(Integer.parseInt(txtCodigosicoa.getText()));    
+            nivel.setNombre(txtNombre.getText());
+            nivel.setParalelo(txtParalelo.getText());
+            nivel.setModalidad(txtModalidad.getText());
+            nivel.setCodigo_escuela(Integer.parseInt(txtCodigoescuela.getText()));       
+            if(fnivel.Insertar(nivel) ){
+                limpiarContniveles();
+                JOptionPane.showMessageDialog(this,"Registrado correctamente!!",
+                "Transacción correcta", JOptionPane.INFORMATION_MESSAGE);
+                btnNuevo.setText("NUEVO");
+                }
+            } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,"Error desconocido: "+ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+                }            
+            }    
+        } 
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,10 +443,15 @@ public class FrmNivel extends javax.swing.JFrame {
             }
         });
     }
-
+Nivel nivel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnListar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNivel;
+    private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btntEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -300,18 +462,13 @@ public class FrmNivel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTable tcodigo;
-    private javax.swing.JButton txtactualizar;
-    private javax.swing.JButton txtbuscar;
-    private javax.swing.JButton txteliminar;
-    private javax.swing.JButton txtlistar;
-    private javax.swing.JButton txtnuevo;
+    private javax.swing.JTable tableListarNivel;
+    private javax.swing.JTextField txtBuscarcodigo;
+    private javax.swing.JTextField txtCodigoescuela;
+    private javax.swing.JTextField txtCodigonivel;
+    private javax.swing.JTextField txtCodigosicoa;
+    private javax.swing.JTextField txtModalidad;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtParalelo;
     // End of variables declaration//GEN-END:variables
 }
