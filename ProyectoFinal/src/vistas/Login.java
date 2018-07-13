@@ -105,7 +105,7 @@ System.exit(0);
        String Pass = new String(Password.getPassword());
        if(txtUsuario.getText().equals(Usuario)&& Pass.equals(Contraseña)){
            
-           FrmMenuPrincipal GN= new FrmMenuPrincipal();
+           Menu GN= new Menu();
            GN.setVisible(true);
            dispose();
            
