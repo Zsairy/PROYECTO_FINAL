@@ -215,7 +215,7 @@ public class FrmInsertarFacultad extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-Facultad obj=new  Facultad ();
+FrmFacultad1 obj=new  FrmFacultad1 ();
         obj.setVisible(true);
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
