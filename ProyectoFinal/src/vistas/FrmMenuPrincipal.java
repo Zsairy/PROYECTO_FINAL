@@ -153,7 +153,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
     private void btnCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarreraActionPerformed
         // TODO add your handling code here:
-        FrmCarrera obj=new  FrmCarrera ();
+        FrmEscuela obj=new  FrmEscuela ();
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCarreraActionPerformed
