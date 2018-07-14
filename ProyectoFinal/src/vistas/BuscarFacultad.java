@@ -87,7 +87,7 @@ public class BuscarFacultad extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel1.setText("INFORMACION");
+        jLabel1.setText("INFORMACIÓN");
 
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(0, 0, 102));
