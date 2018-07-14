@@ -206,7 +206,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-FrmFacultad1 obj=new  FrmFacultad1 ();
+FrmNivel1 obj=new  FrmNivel1 ();
         obj.setVisible(true);
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
