@@ -136,7 +136,7 @@ public class FrmInsertarFacultad extends javax.swing.JFrame {
                                     .addComponent(btnIngresar)
                                     .addGap(18, 18, 18)
                                     .addComponent(jButton1)
-                                    .addGap(150, 150, 150))
+                                    .addGap(162, 162, 162))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(lblCodigoSicoa)
                                     .addGap(15, 15, 15)
