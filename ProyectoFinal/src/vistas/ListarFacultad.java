@@ -58,7 +58,6 @@ public class ListarFacultad extends javax.swing.JFrame {
     private void initComponents() {
 
         lblBuscarCodigo = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -78,17 +77,6 @@ public class ListarFacultad extends javax.swing.JFrame {
         lblBuscarCodigo.setForeground(new java.awt.Color(0, 0, 102));
         getContentPane().add(lblBuscarCodigo);
         lblBuscarCodigo.setBounds(270, 180, 60, 0);
-
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(0, 0, 102));
-        btnBuscar.setText("LISTAR");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscar);
-        btnBuscar.setBounds(331, 73, 77, 30);
 
         btnSalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(0, 0, 102));
@@ -211,28 +199,6 @@ public class ListarFacultad extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-       
-           Connection cn;
-        Statement st;
-        ResultSet rs=null;
- 
-         DefaultTableModel modelo = (DefaultTableModel) tableListarFacultad.getModel();               
-        ArrayList<Facultad> lista = new ArrayList<>();
-        try {
-            FFacultad ffacultad = new FFacultad();
-            lista = ffacultad.ObtenerFacultades();            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage(),"Error", 
-                    JOptionPane.ERROR_MESSAGE);
-        }
-        for(Facultad r : lista){
-            modelo.addRow(new Object[]{ r.getCodigo(),r.getNombre(),r.getDescripcion(),
-            r.getCodigo_sicoa()});           
-        }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
         FrmFacultad1 obj=new FrmFacultad1();
@@ -281,7 +247,6 @@ public class ListarFacultad extends javax.swing.JFrame {
     }
     Facultad facultad;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel2;
