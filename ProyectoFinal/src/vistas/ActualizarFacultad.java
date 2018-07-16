@@ -347,7 +347,7 @@ public class ActualizarFacultad extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
-        FrmFacultad1 obj=new FrmFacultad1();
+        FrmFacultad obj=new FrmFacultad();
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed

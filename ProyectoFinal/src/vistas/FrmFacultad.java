@@ -5,40 +5,18 @@
  */
 package vistas;
 
-import java.awt.BorderLayout;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import proyectofinal.entidades.impl.FFacultad;
-import proyectofinal.entidades.Facultad;
-import java.util.List;
-
-
-
 /**
  *
- * @author franc
+ * @author DiegoPatricio
  */
 public class FrmFacultad extends javax.swing.JFrame {
 
     /**
-      this.setUndecorated(true);
-     
+     * Creates new form Facultad
      */
     public FrmFacultad() {
-        this.setUndecorated(true);
         initComponents();
-               
-        this.setSize(770,749);
-        this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null);
-    }
-     private void limpiarContfacultades() {
-        txtCodigofacultad.setText("");
-        txtNombre.setText("");
-        txtDescripcion.setText("");
-        txtCodigosicoa.setText("");
-        
     }
 
     /**
@@ -50,375 +28,208 @@ public class FrmFacultad extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblBuscarCodigo = new javax.swing.JLabel();
-        txtBuscarcodigo = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        lblCodigofacultad = new javax.swing.JLabel();
-        lblNombre = new javax.swing.JLabel();
-        lblDescripcion = new javax.swing.JLabel();
-        lblCodigosicoa = new javax.swing.JLabel();
-        txtCodigofacultad = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        txtDescripcion = new javax.swing.JTextField();
-        txtCodigosicoa = new javax.swing.JTextField();
-        btnModificar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        btnNuevo = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
-        btnListar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tableListarFacultad = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setUndecorated(true);
 
-        lblBuscarCodigo.setText("BUSCAR CODIGO:");
-        getContentPane().add(lblBuscarCodigo);
-        lblBuscarCodigo.setBounds(77, 50, 114, 14);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoAzul.png"))); // NOI18N
+        jLabel2.setText("jLabel1");
 
-        txtBuscarcodigo.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("Actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarcodigoActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtBuscarcodigo);
-        txtBuscarcodigo.setBounds(230, 40, 130, 30);
 
-        btnBuscar.setText("BUSCAR");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscar);
-        btnBuscar.setBounds(390, 40, 110, 23);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("INFORMACION ");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(130, 80, 120, 15);
-
-        lblCodigofacultad.setText("CODIGO FACULTAD:");
-        getContentPane().add(lblCodigofacultad);
-        lblCodigofacultad.setBounds(80, 120, 130, 14);
-
-        lblNombre.setText("NOMBRE:");
-        getContentPane().add(lblNombre);
-        lblNombre.setBounds(80, 160, 80, 14);
-
-        lblDescripcion.setText("DESCRIPCION:");
-        getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(80, 200, 100, 14);
-
-        lblCodigosicoa.setText("CODIGO SICOA:");
-        getContentPane().add(lblCodigosicoa);
-        lblCodigosicoa.setBounds(80, 240, 100, 14);
-
-        txtCodigofacultad.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton3.setText("Nuevo");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigofacultadActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCodigofacultad);
-        txtCodigofacultad.setBounds(230, 100, 400, 30);
 
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton4.setText("Salir");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNombre);
-        txtNombre.setBounds(230, 140, 400, 30);
-        getContentPane().add(txtDescripcion);
-        txtDescripcion.setBounds(230, 180, 400, 30);
 
-        txtCodigosicoa.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton5.setText("Volver");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigosicoaActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCodigosicoa);
-        txtCodigosicoa.setBounds(230, 220, 400, 30);
 
-        btnModificar.setText("ACTUALIZAR");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnModificar);
-        btnModificar.setBounds(230, 290, 110, 23);
 
-        btnEliminar.setText("ELIMINAR");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton7.setText("Listar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                jButton7ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEliminar);
-        btnEliminar.setBounds(90, 290, 110, 23);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/unach.jpg"))); // NOI18N
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(640, 10, 95, 100);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoAzul.png"))); // NOI18N
+        jLabel3.setText("jLabel1");
 
-        btnNuevo.setText("NUEVO");
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnNuevo);
-        btnNuevo.setBounds(500, 290, 110, 23);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotipounach2015-01 (5).png"))); // NOI18N
 
-        btnVolver.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnVolver.setText("MENU");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnVolver);
-        btnVolver.setBounds(260, 670, 80, 23);
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel4.setText("Facultad");
 
-        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnSalir.setText("SALIR");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSalir);
-        btnSalir.setBounds(390, 670, 80, 23);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alumnos (1).png"))); // NOI18N
 
-        btnListar.setText("LISTAR");
-        btnListar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnListar);
-        btnListar.setBounds(370, 290, 100, 23);
-
-        tableListarFacultad.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Codigo", "Nombre", "Descripcion", "Codigo sicoa"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tableListarFacultad);
-        if (tableListarFacultad.getColumnModel().getColumnCount() > 0) {
-            tableListarFacultad.getColumnModel().getColumn(0).setHeaderValue("Codigo");
-            tableListarFacultad.getColumnModel().getColumn(1).setHeaderValue("Nombre");
-            tableListarFacultad.getColumnModel().getColumn(2).setHeaderValue("Descripcion");
-            tableListarFacultad.getColumnModel().getColumn(3).setHeaderValue("Codigo sicoa");
-        }
-
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(100, 360, 570, 280);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel1))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel4))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(70, 70, 70)
+                .addComponent(jLabel5))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(jButton5)
+                .addGap(49, 49, 49)
+                .addComponent(jButton4))
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel1)
+                .addGap(4, 4, 4)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(1, 1, 1)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jButton3)
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton6)
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton2)
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton1)
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton7))
+                    .addComponent(jLabel5))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton5)
+                    .addComponent(jButton4))
+                .addGap(17, 17, 17)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtBuscarcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarcodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarcodigoActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-        FFacultad ffacultad = new FFacultad();
-        try {
-            limpiarContfacultades();
-            facultad = ffacultad.ObtenerFacultadDadoCodigo(
-                Integer.parseInt(txtBuscarcodigo.getText()));
-            if (facultad != null) {
-                txtCodigofacultad.setText(Integer.toString(facultad.getCodigo()));
-                txtNombre.setText(facultad.getNombre());
-                txtDescripcion.setText(facultad.getDescripcion());
-                txtCodigosicoa.setText(Integer.toString(facultad.getCodigo_sicoa()));
-               // txtCodigo_modulo.setText(Integer.toString(facultad.getCodigo_modulo()));
-                
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Error al buscar la facultad!!",
-                "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-        FFacultad ffacultad = new FFacultad();
-        int confirmacion = JOptionPane.showConfirmDialog(this,
-            "¿Quiere eliminar la facultad?", "Confirme",
-            JOptionPane.YES_NO_OPTION);
-        if (confirmacion == JOptionPane.YES_OPTION) {
-            try {
-                if (ffacultad.eliminar(facultad) ) {
-                    JOptionPane.showMessageDialog(this,
-                        "Facultad eliminado correctamente!!",
-                        "Transacción correcta", JOptionPane.INFORMATION_MESSAGE);
-                    limpiarContfacultades();
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Error al eliminar la facultad!!",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtCodigosicoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigosicoaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigosicoaActionPerformed
-
-    private void txtCodigofacultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigofacultadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigofacultadActionPerformed
-
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
-        FFacultad ffacultad = new FFacultad();
-        int confirmacion = JOptionPane.showConfirmDialog(this,
-                "¿Quiere modificar la facultad?", "Confirme",
-                JOptionPane.YES_NO_OPTION);
-        if (confirmacion == JOptionPane.YES_OPTION) {
-        try {            
-            facultad.setCodigo(Integer.parseInt(txtCodigofacultad.getText()));
-            facultad.setNombre(txtNombre.getText());   
-            facultad.setDescripcion(txtDescripcion.getText());  
-            facultad.setCodigo_sicoa(Integer.parseInt(txtCodigosicoa.getText()));            
-            if(ffacultad.actualizar(facultad) ){
-                JOptionPane.showMessageDialog(this,"Facultad modificada correctamente!!",
-                "Transacción correcta", JOptionPane.INFORMATION_MESSAGE);
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this,"Error desconocido: "+ex.getMessage(),
-                    "Error", JOptionPane.ERROR_MESSAGE);
-            }             
-        }
-    }//GEN-LAST:event_btnModificarActionPerformed
-
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        // TODO add your handling code here:
-           if (btnNuevo.getText().compareTo("NUEVO")==0) {
-            limpiarContfacultades();
-            btnNuevo.setText("REGISTRAR");          
-        }else{
-            if(btnNuevo.getText().compareTo("REGISTRAR")==0){                  
-            try {
-            Facultad facultad = new Facultad();
-            FFacultad ffacultad = new FFacultad();
-            facultad.setCodigo(Integer.parseInt(txtCodigofacultad.getText()));
-            facultad.setNombre(txtNombre.getText());
-            facultad.setDescripcion(txtDescripcion.getText());
-            facultad.setCodigo_sicoa(Integer.parseInt(txtCodigosicoa.getText()));            
-            if(ffacultad.Insertar(facultad) ){
-                limpiarContfacultades();
-                JOptionPane.showMessageDialog(this,"Registrado correctamente!!",
-                "Transacción correcta", JOptionPane.INFORMATION_MESSAGE);
-                btnNuevo.setText("NUEVO");
-                }
-            } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this,"Error desconocido: "+ex.getMessage(),
-                    "Error", JOptionPane.ERROR_MESSAGE);
-                }            
-            }    
-        }   
-    }//GEN-LAST:event_btnNuevoActionPerformed
-
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
-        FrmMenuPrincipal obj=new FrmMenuPrincipal();
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+ FrmInsertarFacultad obj=new FrmInsertarFacultad();
         obj.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnVolverActionPerformed
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
-         System.exit(0);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+ListarFacultad obj=new ListarFacultad();
+        obj.setVisible(true);
+        dispose();          // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel modelo = (DefaultTableModel) tableListarFacultad.getModel();               
-        ArrayList<Facultad> lista = new ArrayList<>();
-        try {
-            FFacultad ffacultad = new FFacultad();
-            lista = ffacultad.ObtenerFacultades();            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage(),"Error", 
-                    JOptionPane.ERROR_MESSAGE);
-        }
-        for(Facultad r : lista){
-            modelo.addRow(new Object[]{ r.getCodigo(),r.getNombre(),r.getDescripcion(),
-            r.getCodigo_sicoa()});           
-        }
-    }//GEN-LAST:event_btnListarActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+     BuscarFacultad obj=new BuscarFacultad();
+        obj.setVisible(true);
+        dispose();   // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+Menu obj=new Menu();
+        obj.setVisible(true);
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+EliminarFacultad obj=new EliminarFacultad();
+        obj.setVisible(true);
+        dispose();         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+ActualizarFacultad obj=new ActualizarFacultad();
+        obj.setVisible(true);
+        dispose();         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,6 +257,37 @@ public class FrmFacultad extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmFacultad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -454,28 +296,21 @@ public class FrmFacultad extends javax.swing.JFrame {
             }
         });
     }
-    Facultad facultad;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnListar;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnNuevo;
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnVolver;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblBuscarCodigo;
-    private javax.swing.JLabel lblCodigofacultad;
-    private javax.swing.JLabel lblCodigosicoa;
-    private javax.swing.JLabel lblDescripcion;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JTable tableListarFacultad;
-    private javax.swing.JTextField txtBuscarcodigo;
-    private javax.swing.JTextField txtCodigofacultad;
-    private javax.swing.JTextField txtCodigosicoa;
-    private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }
