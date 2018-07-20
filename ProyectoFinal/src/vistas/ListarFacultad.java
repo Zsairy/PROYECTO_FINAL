@@ -18,7 +18,7 @@ import proyectofinal.entidades.impl.FFacultad;
 import proyectofinal.entidades.Facultad;
 import java.util.List;
 import java.util.concurrent.locks.StampedLock;
-
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -32,6 +32,7 @@ public class ListarFacultad extends javax.swing.JFrame {
      
      */
     public ListarFacultad() {
+        
         this.setUndecorated(true);
         initComponents();
       
@@ -69,6 +70,7 @@ public class ListarFacultad extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableListarFacultad = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -196,6 +198,15 @@ public class ListarFacultad extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(120, 260, 570, 280);
 
+        jButton1.setText("Listar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(450, 60, 59, 23);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -210,6 +221,30 @@ public class ListarFacultad extends javax.swing.JFrame {
         // TODO add your handling code here:
          System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        
+        DefaultTableModel modelo =  (DefaultTableModel) tableListarFacultad.getModel();
+        
+        
+        ArrayList<Facultad> lista = new ArrayList<>();
+        
+        try {
+         
+            FFacultad ffacultad = new FFacultad();
+            
+            lista = ffacultad.ObtenerFacultades();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(),"Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        for(Facultad f:lista){
+            
+            modelo.addRow(new Object[] {f.getCodigo(), f.getNombre(), f.getDescripcion(), f.getCodigo_sicoa()});
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,6 +276,7 @@ public class ListarFacultad extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new ListarFacultad().setVisible(true);
             }
         });
@@ -249,6 +285,7 @@ public class ListarFacultad extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
