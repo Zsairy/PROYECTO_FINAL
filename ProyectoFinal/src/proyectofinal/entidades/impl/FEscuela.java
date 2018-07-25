@@ -36,12 +36,12 @@ public class FEscuela implements Serializable {
         return eje;
     }
 
-    public static ArrayList<Escuela> llenarEscuelaes(ConjuntoResultado rs) throws Exception {
+    public static ArrayList<Escuela> llenarEscuelas(ConjuntoResultado rs) throws Exception {
         ArrayList<Escuela> lst = new ArrayList<Escuela>();
         Escuela escuela = null;
         try {
             while (rs.next()) {
-                escuela = new Escuela(rs.getInt("pcodigo"), rs.getInt("pcodigofacultad"), rs.getString("pnombre"), rs.getString("pdescripcion"), rs.getInt("pcodigo_sicoa"));
+                escuela = new Escuela(rs.getInt("pcodigo"), rs.getInt("pcodigo_facultad") ,rs.getString("pnombre"), rs.getString("pdescripcion"), rs.getInt("pcodigo_sicoa"));
                 lst.add(escuela);
             }
         } catch (Exception e) {
@@ -51,12 +51,12 @@ public class FEscuela implements Serializable {
         return lst;
     }
 
-    public static ArrayList<Escuela> ObtenerEscuelaes() throws Exception {
+    public static ArrayList<Escuela> ObtenerEscuelas() throws Exception {
         ArrayList<Escuela> lst = new ArrayList<Escuela>();
         try {
             String sql = "select * from actividades.fc_obtener_escuela()";
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
-            lst = llenarEscuelaes(rs);
+            lst = llenarEscuelas(rs);
             rs = null;
 
         } catch (SQLException exConec) {
@@ -73,7 +73,7 @@ public class FEscuela implements Serializable {
             lstP.add(new Parametro(1, codigo));
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql, lstP);
             lst = new Escuela();
-            lst = llenarEscuelaes(rs).get(0);
+            lst = llenarEscuelas(rs).get(0);
             rs = null;
         } catch (SQLException exConec) {
             throw new Exception(exConec.getMessage());

@@ -5,6 +5,10 @@
  */
 package proyectofinal.entidades;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import proyectofinal.entidades.impl.FFacultad;
+
 /**
  *
  * @author franc
@@ -56,6 +60,7 @@ public class Facultad {
 
     public void setCodigo_sicoa(int codigo_sicoa) {
         this.codigo_sicoa = codigo_sicoa;
-    }
+    
   
+    }
 }

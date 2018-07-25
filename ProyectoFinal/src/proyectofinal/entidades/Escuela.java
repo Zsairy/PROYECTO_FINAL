@@ -11,13 +11,10 @@ package proyectofinal.entidades;
  */
 public class Escuela {
   private int  codigo;
-  private int  codigo_facultad;
+  private int codigo_facultad;
   private String nombre;
   private String descripcion;
   private  int codigo_sicoa;
-
-    public Escuela() {
-    }
 
     public Escuela(int codigo, int codigo_facultad, String nombre, String descripcion, int codigo_sicoa) {
         this.codigo = codigo;
@@ -25,6 +22,9 @@ public class Escuela {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.codigo_sicoa = codigo_sicoa;
+    }
+
+    public Escuela() {
     }
 
     public int getCodigo() {
@@ -67,4 +67,6 @@ public class Escuela {
         this.codigo_sicoa = codigo_sicoa;
     }
 
+    
 }
+    

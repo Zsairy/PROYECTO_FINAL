@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import accesodatos.Parametro;
 import java.sql.SQLException;
+import javax.swing.JComboBox;
 import proyectofinal.entidades.Facultad;
 
 /**
@@ -61,12 +62,14 @@ public class FFacultad implements Serializable {
             ConjuntoResultado rs = AccesoDatos.ejecutaQuery(sql);
             lst = llenarFacultades(rs);
             rs = null;
-
         } catch (SQLException exConec) {
             throw new Exception(exConec.getMessage());
         }
         return lst;
     }
+    
+    
+
 
     public static Facultad ObtenerFacultadDadoCodigo(int codigo) throws Exception {
         Facultad lst;
