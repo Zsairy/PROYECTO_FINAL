@@ -149,7 +149,7 @@ System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-     BuscarFacultad obj=new BuscarFacultad();
+     BuscarEscuela obj=new BuscarEscuela();
         obj.setVisible(true);
         dispose();   // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -161,13 +161,13 @@ Menu obj=new Menu();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-EliminarFacultad obj=new EliminarFacultad();
+EliminarEscuela obj=new EliminarEscuela();
         obj.setVisible(true);
         dispose();         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-ActualizarFacultad obj=new ActualizarFacultad();
+ActualizarEscuela obj=new ActualizarEscuela();
         obj.setVisible(true);
         dispose();         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed

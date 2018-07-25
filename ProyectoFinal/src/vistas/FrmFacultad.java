@@ -200,7 +200,7 @@ public class FrmFacultad extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-FrmFacultad obj=new FrmFacultad();
+ListarFacultad obj=new ListarFacultad();
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
