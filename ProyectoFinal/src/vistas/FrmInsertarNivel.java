@@ -51,7 +51,6 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
         lblparalelo = new javax.swing.JLabel();
         lblCodigoescuela = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
-        txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtParalelo = new javax.swing.JTextField();
         txtModalidad = new javax.swing.JTextField();
@@ -65,6 +64,7 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
         txtCodigosicoa = new javax.swing.JTextField();
         lblModalidad = new javax.swing.JLabel();
         txtCodigoescuela = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -137,6 +137,13 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
             }
         });
 
+        txtCodigo.setEnabled(false);
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,7 +182,7 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
                                             .addComponent(txtParalelo, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtCodigoescuela, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addComponent(lblcodigosioa))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
@@ -272,6 +279,10 @@ FrmNivel obj=new  FrmNivel();
     private void txtCodigoescuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoescuelaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoescuelaActionPerformed
+
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoActionPerformed
 
     /**
      * @param args the command line arguments

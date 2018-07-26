@@ -201,6 +201,9 @@ public class FrmNivel extends javax.swing.JFrame {
 
     private void btnlistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlistarActionPerformed
         // TODO add your handling code here:
+        ListarNivel obj=new ListarNivel();
+        obj.setVisible(true);
+        dispose();    
     }//GEN-LAST:event_btnlistarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

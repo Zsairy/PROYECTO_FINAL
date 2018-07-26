@@ -76,10 +76,10 @@ public class ActualizarNivel extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         btnActualizar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        txtCodigo = new javax.swing.JTextField();
         lblCodigofacultad1 = new javax.swing.JLabel();
         lblCodigosicoa1 = new javax.swing.JLabel();
         txtCodigoescuela = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -185,12 +185,6 @@ public class ActualizarNivel extends javax.swing.JFrame {
             }
         });
 
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
-
         lblCodigofacultad1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCodigofacultad1.setForeground(new java.awt.Color(0, 0, 102));
         lblCodigofacultad1.setText("CODIGO:");
@@ -202,6 +196,13 @@ public class ActualizarNivel extends javax.swing.JFrame {
         txtCodigoescuela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoescuelaActionPerformed(evt);
+            }
+        });
+
+        txtCodigo.setEnabled(false);
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoActionPerformed(evt);
             }
         });
 
@@ -269,8 +270,8 @@ public class ActualizarNivel extends javax.swing.JFrame {
                                 .addComponent(lblCodigofacultad1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtCodigoSicoa, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtCodigoSicoa, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblCodigosicoa1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
@@ -312,8 +313,8 @@ public class ActualizarNivel extends javax.swing.JFrame {
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCodigofacultad1))
+                            .addComponent(lblCodigofacultad1)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCodigoSicoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -412,13 +413,12 @@ public class ActualizarNivel extends javax.swing.JFrame {
             cn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/proyecto", "tutorias" ,"123");
             cs=cn.prepareCall("select actividades.factualiza_nivel(?,?,?,?,?,?)");
             
-            cs.setInt(1 , Integer.parseInt(txtCodigo.getText())); 
-            cs.setInt(2 , Integer.parseInt(txtCodigoSicoa.getText()));
-            cs.setString(3 , txtNombre.getText());
-            cs.setString(4 ,txtParalelo.getText());
-            cs.setString(5 ,txtModalidad.getText());
-            cs.setInt(6 , Integer.parseInt(txtCodigoescuela.getText()));
-           
+            cs.setInt(1 , Integer.parseInt(txtCodigoSicoa.getText()));
+            cs.setString(2 ,txtNombre.getText());
+            cs.setString(3 , txtParalelo.getText());
+            cs.setString(4 , txtModalidad.getText());
+            cs.setInt(5 , Integer.parseInt(txtCodigoescuela.getText()));
+            cs.setInt(6 , Integer.parseInt(txtCodigo.getText()));
            
             if (cs.execute()) {
                 JOptionPane.showMessageDialog(null, "Datos actulizados correctamente");
@@ -426,16 +426,36 @@ public class ActualizarNivel extends javax.swing.JFrame {
             }
         } catch (ClassNotFoundException | SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }        // TODO add your handling code here:
+        } 
+//        int confirmacion = JOptionPane.showConfirmDialog(this,
+//            "¿Quiere modificar el nivel?", "Confirme",
+//            JOptionPane.YES_NO_OPTION);
+//        if (confirmacion == JOptionPane.YES_OPTION) {
+//            try {
+//                nivel.setCodigo(Integer.parseInt(txtCodigo.getText()));
+//                nivel.setCodigo_sicoa(Integer.parseInt(txtCodigoSicoa.getText()));
+//                nivel.setNombre(txtNombre.getText());
+//                nivel.setParalelo(txtParalelo.getText());
+//                nivel.setModalidad(txtModalidad.getText());
+//                nivel.setCodigo_escuela(Integer.parseInt(txtCodigoescuela.getText()));
+//                if(fnivel.actualizar(nivel) ){
+//                    JOptionPane.showMessageDialog(this,"Nivel modificado correctamente!!",
+//                        "Transacción correcta", JOptionPane.INFORMATION_MESSAGE);
+//                }
+//            } catch (Exception ex) {
+//                JOptionPane.showMessageDialog(this,"Error desconocido: "+ex.getMessage(),
+//                    "Error", JOptionPane.ERROR_MESSAGE);
+//            }
+//        }      // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarActionPerformed
-
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
 
     private void txtCodigoescuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoescuelaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoescuelaActionPerformed
+
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoActionPerformed
 
     /**
      * @param args the command line arguments
