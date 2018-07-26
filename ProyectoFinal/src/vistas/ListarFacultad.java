@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -17,7 +18,11 @@ import proyectofinal.entidades.impl.FFacultad;
 import proyectofinal.entidades.Facultad;
 import java.util.List;
 import java.util.concurrent.locks.StampedLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import reportes.Reportes;
 
 /**
  *
@@ -68,6 +73,7 @@ public class ListarFacultad extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableListarFacultad = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -86,7 +92,7 @@ public class ListarFacultad extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir);
-        btnSalir.setBounds(390, 570, 80, 23);
+        btnSalir.setBounds(250, 570, 80, 23);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoAzul.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -123,7 +129,7 @@ public class ListarFacultad extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVolver);
-        btnVolver.setBounds(250, 570, 80, 23);
+        btnVolver.setBounds(130, 570, 80, 23);
 
         tableListarFacultad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,14 +201,27 @@ public class ListarFacultad extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(120, 260, 570, 280);
 
-        jButton1.setText("Listar");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 102));
+        jButton1.setText("LISTAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(560, 210, 110, 23);
+        jButton1.setBounds(380, 570, 90, 23);
+
+        btnImprimir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnImprimir.setForeground(new java.awt.Color(0, 0, 102));
+        btnImprimir.setText("IMPRIMIR");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnImprimir);
+        btnImprimir.setBounds(520, 570, 90, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,6 +256,17 @@ public class ListarFacultad extends javax.swing.JFrame {
             modelo.addRow(new Object[]{f.getCodigo(), f.getNombre(), f.getDescripcion(), f.getCodigo_sicoa()});
    }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        try {
+            Reportes reporte = new Reportes();
+            reporte.ReporteFacultad();
+        }catch (JRException ex) {
+            Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null , ex);
+        }catch (SQLException ex){
+            Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null , ex);
+        }
+    }//GEN-LAST:event_btnImprimirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,6 +305,7 @@ public class ListarFacultad extends javax.swing.JFrame {
     }
     Facultad facultad;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVolver;
     private javax.swing.JButton jButton1;
