@@ -76,7 +76,7 @@ public class ActualizarEscuela extends javax.swing.JFrame {
         btnActualizar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         txtCodigo = new javax.swing.JTextField();
-        lblCodigofacultad1 = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -188,9 +188,9 @@ public class ActualizarEscuela extends javax.swing.JFrame {
             }
         });
 
-        lblCodigofacultad1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblCodigofacultad1.setForeground(new java.awt.Color(0, 0, 102));
-        lblCodigofacultad1.setText("CODIGO:");
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(0, 0, 102));
+        lblCodigo.setText("CODIGO:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -263,7 +263,7 @@ public class ActualizarEscuela extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(txtCodigofacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblCodigofacultad1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -299,7 +299,7 @@ public class ActualizarEscuela extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCodigofacultad1))
+                    .addComponent(lblCodigo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCodigofacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -341,7 +341,7 @@ public class ActualizarEscuela extends javax.swing.JFrame {
                 Integer.parseInt(txtBuscarcodigo.getText()));
             if (escuela != null) {
                 txtCodigo.setText(Integer.toString(escuela.getCodigo()));
-                txtCodigofacultad.setText(Integer.toString(escuela.getCodigo()));
+                txtCodigofacultad.setText(Integer.toString(escuela.getCodigo_facultad()));
                 txtNombre.setText(escuela.getNombre());
                 txtDescripcion.setText(escuela.getDescripcion());
                 txtCodigosicoa.setText(Integer.toString(escuela.getCodigo_sicoa()));
@@ -461,8 +461,8 @@ public class ActualizarEscuela extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel lblBuscarCodigo;
+    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblCodigofacultad;
-    private javax.swing.JLabel lblCodigofacultad1;
     private javax.swing.JLabel lblCodigosicoa;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblNombre;
