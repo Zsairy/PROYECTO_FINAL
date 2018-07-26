@@ -193,7 +193,7 @@ public class ListarEscuela extends javax.swing.JFrame {
         }
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(120, 260, 570, 280);
+        jScrollPane2.setBounds(120, 260, 600, 280);
 
         jButton1.setText("Listar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -202,7 +202,7 @@ public class ListarEscuela extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(450, 60, 59, 23);
+        jButton1.setBounds(539, 173, 120, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -230,7 +230,7 @@ public class FrmInsertarEscuela extends javax.swing.JFrame {
         CallableStatement cs;
         try {
             Class.forName("org.postgresql.Driver");
-            cn = DriverManager.getConnection("jdbc:postgresql://localhost/proyecto_final", "tutorias" ,"123");
+            cn = DriverManager.getConnection("jdbc:postgresql://localhost/proyecto", "tutorias" ,"123");
             cs=cn.prepareCall("select actividades.finsertar_escuela(?,?,?,?,?)");
             cs.setInt(1 , Integer.parseInt(txtCodigo.getText()));
             cs.setInt(2, Integer.parseInt(txtCodigoFacultad.getText()));

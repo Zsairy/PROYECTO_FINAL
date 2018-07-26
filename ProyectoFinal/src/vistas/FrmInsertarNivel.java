@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import proyectofinal.entidades.Nivel;
+import proyectofinal.entidades.impl.FNivel;
 
 /**
  *
@@ -25,7 +27,15 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
+      private void limpiarContniveles() {
+        txtCodigo.setText("");
+        txtCodigosicoa.setText("");
+        txtNombre.setText("");
+        txtParalelo.setText("");
+        txtModalidad.setText("");
+        txtCodigoescuela.setText("");
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,21 +48,23 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblcodigo = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
-        lblDescripcion = new javax.swing.JLabel();
-        lblCodigoSicoa = new javax.swing.JLabel();
-        btnIngresar = new javax.swing.JButton();
+        lblparalelo = new javax.swing.JLabel();
+        lblCodigoescuela = new javax.swing.JLabel();
+        btnNuevo = new javax.swing.JButton();
         txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        txtDescripcion = new javax.swing.JTextField();
-        txtCodigosicoa = new javax.swing.JTextField();
+        txtParalelo = new javax.swing.JTextField();
+        txtModalidad = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        lblcodigo1 = new javax.swing.JLabel();
-        txtCodigoFacultad = new javax.swing.JTextField();
+        lblcodigosioa = new javax.swing.JLabel();
+        txtCodigosicoa = new javax.swing.JTextField();
+        lblModalidad = new javax.swing.JLabel();
+        txtCodigoescuela = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -69,31 +81,31 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
         lblNombre.setForeground(new java.awt.Color(0, 0, 51));
         lblNombre.setText("NOMBRE:");
 
-        lblDescripcion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblDescripcion.setForeground(new java.awt.Color(0, 0, 51));
-        lblDescripcion.setText("DESCRIPCION:");
+        lblparalelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblparalelo.setForeground(new java.awt.Color(0, 0, 51));
+        lblparalelo.setText("PARALELO:");
 
-        lblCodigoSicoa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblCodigoSicoa.setForeground(new java.awt.Color(0, 0, 51));
-        lblCodigoSicoa.setText("CODIGO SICOA:");
+        lblCodigoescuela.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblCodigoescuela.setForeground(new java.awt.Color(0, 0, 51));
+        lblCodigoescuela.setText("CODIGO ESCUELA:");
 
-        btnIngresar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnIngresar.setText("INGRESAR");
-        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnNuevo.setText("NUEVO");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIngresarActionPerformed(evt);
+                btnNuevoActionPerformed(evt);
             }
         });
 
-        txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
+        txtParalelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDescripcionActionPerformed(evt);
+                txtParaleloActionPerformed(evt);
             }
         });
 
-        txtCodigosicoa.addActionListener(new java.awt.event.ActionListener() {
+        txtModalidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigosicoaActionPerformed(evt);
+                txtModalidadActionPerformed(evt);
             }
         });
 
@@ -111,63 +123,66 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logotipounach2015-01 (5).png"))); // NOI18N
 
-        lblcodigo1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblcodigo1.setForeground(new java.awt.Color(0, 0, 51));
-        lblcodigo1.setText("CODIGO FACULTAD:");
+        lblcodigosioa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblcodigosioa.setForeground(new java.awt.Color(0, 0, 51));
+        lblcodigosioa.setText("CODIGO SICOA:");
+
+        lblModalidad.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblModalidad.setForeground(new java.awt.Color(0, 0, 51));
+        lblModalidad.setText("MODALIDAD:");
+
+        txtCodigoescuela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoescuelaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(10, 10, 10)
                             .addComponent(jLabel4))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(190, 190, 190)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(20, 20, 20)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(btnIngresar)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jButton1)
-                                    .addGap(162, 162, 162))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(lblCodigoSicoa)
-                                            .addGap(29, 29, 29))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(lblNombre)
-                                            .addGap(68, 68, 68))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblDescripcion)
-                                                .addComponent(lblcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(36, 36, 36))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(lblcodigo1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtCodigoFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtCodigosicoa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                    .addComponent(lblcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(90, 90, 90)
+                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(btnNuevo)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton1)
+                                        .addGap(162, 162, 162))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblparalelo)
+                                            .addComponent(lblCodigoescuela)
+                                            .addComponent(lblModalidad)
+                                            .addComponent(lblNombre))
+                                        .addGap(47, 47, 47)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtCodigosicoa, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtParalelo, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCodigoescuela, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblcodigosioa))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,30 +195,34 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblcodigo)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblcodigo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCodigoFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblcodigo1))
+                    .addComponent(lblcodigosioa)
+                    .addComponent(txtCodigosicoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDescripcion)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCodigoSicoa)
-                    .addComponent(txtCodigosicoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIngresar)
+                    .addComponent(lblparalelo)
+                    .addComponent(txtParalelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblModalidad)
+                    .addComponent(txtModalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCodigoescuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodigoescuela))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevo)
                     .addComponent(jButton1))
                 .addGap(40, 40, 40)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -212,27 +231,27 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
+    private void txtParaleloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtParaleloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDescripcionActionPerformed
+    }//GEN-LAST:event_txtParaleloActionPerformed
 
-    private void txtCodigosicoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigosicoaActionPerformed
+    private void txtModalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModalidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigosicoaActionPerformed
+    }//GEN-LAST:event_txtModalidadActionPerformed
 
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        // TODO add your handling code here:
-        Connection cn;
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+      Connection cn;
         CallableStatement cs;
         try {
             Class.forName("org.postgresql.Driver");
-            cn = DriverManager.getConnection("jdbc:postgresql://localhost/proyecto_final", "tutorias" ,"123");
-            cs=cn.prepareCall("select actividades.finsertar_escuela(?,?,?,?)");
-            cs.setInt(1 , Integer.parseInt(txtCodigo.getText()));
-            cs.setInt(2 , Integer.parseInt(txtCodigoFacultad.getText()));
-            cs.setString(3 , txtNombre.getText());
-            cs.setString(4 ,txtDescripcion.getText());
-            cs.setInt(5 , Integer.parseInt(txtCodigosicoa.getText()));
+            cn = DriverManager.getConnection("jdbc:postgresql://localhost/proyecto", "tutorias" ,"123");
+            cs=cn.prepareCall("select actividades.finsertar_nivel(?,?,?,?,?)");
+           // cs.setInt(1 , Integer.parseInt(txtCodigo.getText()));
+            cs.setInt(1, Integer.parseInt(txtCodigosicoa.getText()));
+            cs.setString(2 , txtNombre.getText());
+            cs.setString(3 , txtParalelo.getText());
+            cs.setString(4 ,txtModalidad.getText());
+            cs.setInt(5 , Integer.parseInt(txtCodigoescuela.getText()));
            
             if (cs.execute()) {
                 JOptionPane.showMessageDialog(null, "Datos insertados correctamente");
@@ -241,14 +260,18 @@ public class FrmInsertarNivel extends javax.swing.JFrame {
         } catch (ClassNotFoundException | SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    }//GEN-LAST:event_btnIngresarActionPerformed
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-FrmFacultad obj=new  FrmFacultad
-         ();
+FrmNivel obj=new  FrmNivel();
+         
         obj.setVisible(true);
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtCodigoescuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoescuelaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoescuelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,7 +312,7 @@ FrmFacultad obj=new  FrmFacultad
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIngresar;
+    private javax.swing.JButton btnNuevo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -297,15 +320,17 @@ FrmFacultad obj=new  FrmFacultad
     private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JLabel lblCodigoSicoa;
-    private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblCodigoescuela;
+    private javax.swing.JLabel lblModalidad;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblcodigo;
-    private javax.swing.JLabel lblcodigo1;
+    private javax.swing.JLabel lblcodigosioa;
+    private javax.swing.JLabel lblparalelo;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtCodigoFacultad;
+    private javax.swing.JTextField txtCodigoescuela;
     private javax.swing.JTextField txtCodigosicoa;
-    private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JTextField txtModalidad;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtParalelo;
     // End of variables declaration//GEN-END:variables
 }

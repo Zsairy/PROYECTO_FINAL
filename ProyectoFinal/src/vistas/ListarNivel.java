@@ -13,8 +13,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import proyectofinal.entidades.impl.FFacultad;
-import proyectofinal.entidades.Facultad;
+import proyectofinal.entidades.impl.FNivel;
+import proyectofinal.entidades.Nivel;
 import java.util.List;
 import java.util.concurrent.locks.StampedLock;
 import javax.swing.table.DefaultTableModel;
@@ -23,13 +23,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author franc
  */
-public class ListarFacultad extends javax.swing.JFrame {
+public class ListarNivel extends javax.swing.JFrame {
 
     /**
      * this.setUndecorated(true);
      *
      */
-    public ListarFacultad() {
+    public ListarNivel() {
 
         this.setUndecorated(true);
         initComponents();
@@ -38,8 +38,8 @@ public class ListarFacultad extends javax.swing.JFrame {
         this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null);
     }
-//     private void limpiarContfacultades() {
-//        txtCodigofacultad.setText("");
+//     private void limpiarContniveles() {
+//        txtCodigonivel.setText("");
 //        txtNombre.setText("");
 //        txtDescripcion.setText("");
 //        txtCodigosicoa.setText("");
@@ -66,7 +66,7 @@ public class ListarFacultad extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         btnVolver = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableListarFacultad = new javax.swing.JTable();
+        tableListarniveles = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,7 +106,7 @@ public class ListarFacultad extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel5.setText("LISTADO DE FACULTADES");
+        jLabel5.setText("LISTADO DE NIVELES");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(260, 170, 240, 22);
         getContentPane().add(jSeparator4);
@@ -125,7 +125,7 @@ public class ListarFacultad extends javax.swing.JFrame {
         getContentPane().add(btnVolver);
         btnVolver.setBounds(250, 570, 80, 23);
 
-        tableListarFacultad.setModel(new javax.swing.table.DefaultTableModel(
+        tableListarniveles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -190,7 +190,7 @@ public class ListarFacultad extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tableListarFacultad);
+        jScrollPane2.setViewportView(tableListarniveles);
 
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(120, 260, 570, 280);
@@ -209,7 +209,7 @@ public class ListarFacultad extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
-        FrmFacultad obj = new FrmFacultad();
+        FrmNivel obj = new FrmNivel();
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -220,21 +220,21 @@ public class ListarFacultad extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        DefaultTableModel modelo = (DefaultTableModel) tableListarFacultad.getModel();
-        ArrayList<Facultad> lista = new ArrayList<>();
+        DefaultTableModel modelo = (DefaultTableModel) tableListarniveles.getModel();
+        ArrayList<Nivel> lista = new ArrayList<>();
         try {
-            FFacultad ffacultad = new FFacultad();
-            lista = ffacultad.ObtenerFacultades();
+            FNivel fnivel = new FNivel();
+            lista = fnivel.ObtenerNiveles();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
-        int filas = tableListarFacultad.getRowCount() - 1;
+        int filas = tableListarniveles.getRowCount() - 1;
         for (int i = filas; i >= 0; i--) {
             modelo.removeRow(modelo.getRowCount() - 1);
         }
-        for (Facultad f : lista) {
-            modelo.addRow(new Object[]{f.getCodigo(), f.getNombre(), f.getDescripcion(), f.getCodigo_sicoa()});
+        for (Nivel f : lista) {
+            modelo.addRow(new Object[]{f.getCodigo(),f.getCodigo_sicoa(), f.getNombre(), f.getParalelo(),f.getModalidad(), f.getCodigo_escuela()});
    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -255,13 +255,13 @@ public class ListarFacultad extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmFacultad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmFacultad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmFacultad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmFacultad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmNivel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -269,11 +269,11 @@ public class ListarFacultad extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 
-                new ListarFacultad().setVisible(true);
+                new ListarNivel().setVisible(true);
             }
         });
     }
-    Facultad facultad;
+    Nivel nivel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVolver;
@@ -287,6 +287,6 @@ public class ListarFacultad extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel lblBuscarCodigo;
-    private javax.swing.JTable tableListarFacultad;
+    private javax.swing.JTable tableListarniveles;
     // End of variables declaration//GEN-END:variables
 }

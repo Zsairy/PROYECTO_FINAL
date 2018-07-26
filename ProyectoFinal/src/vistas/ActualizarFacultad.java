@@ -366,7 +366,7 @@ public class ActualizarFacultad extends javax.swing.JFrame {
         CallableStatement cs;
         try {
             Class.forName("org.postgresql.Driver");
-            cn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/proyecto_final", "tutorias" ,"123");
+            cn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/proyecto", "tutorias" ,"123");
             cs=cn.prepareCall("select actividades.factualiza_facultad(?,?,?,?)");
             
             cs.setString(1 , txtNombre.getText());
